@@ -1,0 +1,86 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root{
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100vw;
+  height: 100vh;
+}
+
+.container-left{
+  min-width: 100px;
+  width: 35vw;
+  height: 100vh;
+  background-color: yellow;
+}
+
+.container-right{
+  width: 65vw;
+  background-color: blue;
+}
+
+
+.top-bar-left{
+  height: 10%;
+  min-height: 50px;
+  background-color: purple;
+
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+
+}
+
+.top-bar-right{
+  height: 10%;
+  min-height: 50px;
+  background-color: lightpink;
+}
+
+.main-left{
+  height: 90%;
+}
+
+.avatar{
+  border-radius: 50%;
+}
+
+.spacer-container{
+  width: 95%;
+  padding: 10px 0;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.spacer-container .shortcuts-top i{
+  padding: 0 5px;
+  font-size: 1.1em;
+}
+
+.shortcuts-top{
+  width: 70%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.conversations{
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-chat{
+  height: 80px;
+}
