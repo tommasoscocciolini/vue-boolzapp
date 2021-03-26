@@ -1,7 +1,8 @@
 var app = new Vue({
   el: '#root',
   avatarURL: '',
-
+  activeChat: 'active-conv',
+  searchConv: '',
   data:{
     contacts: [
     	{
@@ -95,6 +96,23 @@ var app = new Vue({
     getAvatar: function (contact) {
       let imgSrc = String("./img/avatar" + contact.avatar + ".jpg")
       return String(imgSrc)
+    },
+    getId: function (contact) {
+      let id = String("conv-" + contact.name)
+      return String(id)
+    },
+    activeConvFn: function(contact){
+      for (var i = 0; i < this.contacts.length; i++) {
+        this.contacts[i].status="";
+      }
+      contact.status = 'active';
+      //console.log(this.contacts);
+      // console.log(contact.status);
+      return 'active';
     }
+
+  },
+  computed:{
+    
   }
 })

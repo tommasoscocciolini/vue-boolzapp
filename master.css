@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
 }
 
 #root{
@@ -28,21 +29,28 @@
   height: 10%;
   min-height: 50px;
   background-color: purple;
+  background-color: #2A2F32;
+  color: #ffffff;
+  border: 1px solid grey;
 
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-
 }
 
 .top-bar-right{
   height: 10%;
   min-height: 50px;
-  background-color: lightpink;
+  background-color: #2A2F32;
+  color: #ffffff;
+  border: 1px solid grey;
 }
 
 .main-left{
   height: 90%;
+  background-color: #131C22;
+  color: #ffffff;
+  border: 1px solid grey;
 }
 
 .avatar{
@@ -55,6 +63,27 @@
   height: 100%;
   margin: 0 auto;
   display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.spacer-container-convs{
+  width: 95%;
+  padding: 10px 0;
+
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.spacer-container-conv-body{
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
   justify-content: space-around;
@@ -73,8 +102,21 @@
   align-items: center;
 }
 
+.shortcuts-top-right{
+  width: 40%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.spacer-container .shortcuts-top-right i{
+  padding: 0 5px;
+  font-size: 1.1em;
+}
+
 .conversations{
-  height: 100%;
+  height: 80%;
   width: 100%;
 
   display: flex;
@@ -83,4 +125,76 @@
 
 .contact-chat{
   height: 80px;
+  padding: 10px;
+}
+
+.contact-chat span{
+  border-bottom: 1px solid lightgrey;
+  width: 100%;
+}
+
+.alert-notify{
+  height: 10%;
+  width: 100%;
+  background-color: cyan;
+}
+
+.search-conv{
+  height: 5%;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgrey;
+}
+
+.search-conv .search-txt{
+  height: 80%;
+  width: 80%;
+  border-radius: 10px;
+  border: 1px solid grey;
+  background-color: #ffff;
+
+  display: flex;
+  align-items: center;
+}
+
+.search-conv .search-txt input{
+  width: 90%;
+  border: 0;
+}
+
+.active-conv{
+  background-color: lightgrey;
+}
+
+.main-right{
+  height: 90%;
+  background-image: url("./img/mine.jpg");
+}
+
+.conversation-body{
+  width: 100%;
+  height: 90%;
+}
+
+.messagebar{
+  width: 100%;
+  height: 10%;
+  background-color: grey;
+  display: flex;
+  align-items: center;
+}
+
+.messagebar input{
+  width: 90%;
+  border-radius: 10px;
+  border: 1px solid grey;
+
+}
+
+.messagebar i{
+  font-size: 1.2em;
+  padding: 0 5px;
 }
