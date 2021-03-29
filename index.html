@@ -26,6 +26,7 @@
     </div>
     <div class="main-left">
       <div class="alert-notify">
+        <i class="fas fa-bell-slash"></i>
 
       </div>
       <div class="search-conv">
@@ -37,9 +38,11 @@
       <div class="spacer-container-convs">
 
         <div class="conversations">
-          <div class="contact-chat" v-for="(contact, i) in contacts" @click="activeConvFn(contact)">
+          <div class="contact-chat" v-for="(contact, i) in contacts" :class="`${contact.status}`" @click="activeConvFn(contact)">
             <img :id="getId(contact)" height="60"
                  :src="getAvatar(contact)" alt=""
+                 class="avatar"
+
                  >
             <span>{{contacts[i].name}}</span>
           </div>
@@ -64,7 +67,15 @@
     <div class="main-right">
       <div class="spacer-container-conv-body">
         <div class="conversation-body">
-
+          <div
+          class="message-box"
+          v-for="message in contacts[index].messages"
+          :class="message.status"
+          >
+            <span class="message-text">{{message.text}}</span>
+            <i>i</i>
+            <span class="message-time">{{getDate(message.date)}}</span>
+          </div>
         </div>
         <div class="messagebar">
           <i class="far fa-smile"></i>

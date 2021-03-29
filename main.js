@@ -4,6 +4,7 @@ var app = new Vue({
   activeChat: 'active-conv',
   searchConv: '',
   data:{
+    index: 0,
     contacts: [
     	{
     		name: 'Michele',
@@ -106,13 +107,20 @@ var app = new Vue({
         this.contacts[i].status="";
       }
       contact.status = 'active';
-      //console.log(this.contacts);
-      // console.log(contact.status);
+      console.log(this.contacts);
+      //console.log(contact.status);
       return 'active';
-    }
+    },
+    getDate: function(date) {
+      let data = new Date(date);
+      let hours = data.getHours();
+      let minutes = data.getMinutes();
+
+      return `${hours}:${minutes}`
+    },
 
   },
   computed:{
-    
+
   }
 })

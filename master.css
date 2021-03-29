@@ -29,9 +29,9 @@
   height: 10%;
   min-height: 50px;
   background-color: purple;
-  background-color: #2A2F32;
-  color: #ffffff;
-  border: 1px solid grey;
+  background-color: #EEEEEE;
+  color: black;
+  border: 1px solid lightgrey;
 
   display: flex;
   flex-wrap: nowrap;
@@ -41,20 +41,32 @@
 .top-bar-right{
   height: 10%;
   min-height: 50px;
-  background-color: #2A2F32;
-  color: #ffffff;
-  border: 1px solid grey;
+  background-color: #EEEDEC;
+  color: black;
+  font-size: 1.1em;
+  font-weight: bold;
+  border: 1px solid lightgrey;
+}
+
+.top-bar-left i {
+  color: #767676;
+}
+
+.top-bar-right i {
+  color: #767676;
 }
 
 .main-left{
   height: 90%;
-  background-color: #131C22;
-  color: #ffffff;
-  border: 1px solid grey;
+  background-color: #ffffff;
+  color: black;
+  font-weight: bold;
+  border: .5px solid lightgrey;
 }
 
 .avatar{
   border-radius: 50%;
+  border: 1px solid lightgrey;
 }
 
 .spacer-container{
@@ -126,17 +138,31 @@
 .contact-chat{
   height: 80px;
   padding: 10px;
+  display: flex;
+  border-bottom: .1em solid lightgrey;
 }
 
 .contact-chat span{
-  border-bottom: 1px solid lightgrey;
   width: 100%;
+  align-self: center;
+  padding-left: 10px;
 }
 
 .alert-notify{
   height: 10%;
   width: 100%;
-  background-color: cyan;
+  background-color: #9EE1FE;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 20px;
+}
+
+.alert-notify i{
+  border: 1px solid blue
+  border-radius: 50%;
+  padding: 10px;
 }
 
 .search-conv{
@@ -153,7 +179,7 @@
   height: 80%;
   width: 80%;
   border-radius: 10px;
-  border: 1px solid grey;
+  border: 1px solid lightgrey;
   background-color: #ffff;
 
   display: flex;
@@ -163,6 +189,12 @@
 .search-conv .search-txt input{
   width: 90%;
   border: 0;
+}
+
+.search-conv .search-txt i{
+  color: grey;
+  padding-left: 10px;
+  font-size: .8em;
 }
 
 .active-conv{
@@ -179,22 +211,50 @@
   height: 90%;
 }
 
+.conversation-body div.sent{
+  background-color: lightgreen;
+  float: right;
+  display: inline-block;
+}
+
+.conversation-body div.received{
+  background-color: white;
+  float: left;
+  display: block;
+}
+
+.conversation-body div::after{
+  content: '';
+  display: table;
+  clear: both;
+}
+
 .messagebar{
   width: 100%;
   height: 10%;
-  background-color: grey;
+  background-color: #E5DDD5;
   display: flex;
   align-items: center;
+  border-top: .1em solid lightgrey
 }
 
 .messagebar input{
   width: 90%;
+  height: 30px;
   border-radius: 10px;
-  border: 1px solid grey;
-
+  border: 1px solid lightgrey;
 }
 
 .messagebar i{
   font-size: 1.2em;
-  padding: 0 5px;
+  padding: 0 10px;
+  color: grey;
+}
+
+.message-box{
+  border-radius: 10px;
+  font-size: .8em;
+  padding: 5px;
+  margin: 10px;
+  width: 60%;
 }
