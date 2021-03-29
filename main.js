@@ -5,6 +5,7 @@ var app = new Vue({
   searchConv: '',
   data:{
     index: 0,
+    isActive: '',
     contacts: [
     	{
     		name: 'Michele',
@@ -102,14 +103,18 @@ var app = new Vue({
       let id = String("conv-" + contact.name)
       return String(id)
     },
-    activeConvFn: function(contact){
-      for (var i = 0; i < this.contacts.length; i++) {
-        this.contacts[i].status="";
-      }
-      contact.status = 'active';
-      console.log(this.contacts);
-      //console.log(contact.status);
-      return 'active';
+    // activeConvFn: function(contact){
+    //   for (var i = 0; i < this.contacts.length; i++) {
+    //     this.contacts[i].status="";
+    //   }
+    //   contact.status = 'active';
+    //   console.log(this.contacts);
+    //   //console.log(contact.status);
+    //   return 'active';
+    // },
+    activeConv2: function(contact){
+      this.isActive = contact;
+
     },
     getDate: function(date) {
       let data = new Date(date);
@@ -118,6 +123,12 @@ var app = new Vue({
 
       return `${hours}:${minutes}`
     },
+    getActiveAvatar: function(active) {
+      //console.log(active.avatar);
+      if (active.avatar==undefined) {
+        return "img/avatar_1.jpg"
+      } else return "img/avatar"+active.avatar+".jpg";
+    }
 
   },
   computed:{

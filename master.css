@@ -130,6 +130,7 @@
 .conversations{
   height: 80%;
   width: 100%;
+  cursor: pointer;
 
   display: flex;
   flex-direction: column;
@@ -140,6 +141,10 @@
   padding: 10px;
   display: flex;
   border-bottom: .1em solid lightgrey;
+}
+
+.contact-chat.active{
+  background-color: lightgrey;
 }
 
 .contact-chat span{
@@ -256,5 +261,21 @@
   font-size: .8em;
   padding: 5px;
   margin: 10px;
-  width: 60%;
+  width: 50%;
+}
+
+.message-box i{
+  color: grey;
+  float: right;
+  font-size: .6em;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.message-box .message-time{
+  display: block;
+  color: grey;
+  font-size: .8em;
+  text-align: right;
+  display: block;
 }
