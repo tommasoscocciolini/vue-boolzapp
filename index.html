@@ -11,80 +11,82 @@
   <title>Boolzap</title>
 </head>
 <body>
-<div id="root">
 
-  <div class="container-left">
-    <div class="top-bar-left">
-      <div class="spacer-container">
-        <img class="avatar" height="60" src="./img/avatar_io.jpg" alt="">
-        <div class="shortcuts-top">
-          <i class="fas fa-circle-notch"></i>
-          <i class="fas fa-comment"></i>
-          <i class="fas fa-ellipsis-v"></i>
-        </div>
-      </div>
-    </div>
-    <div class="main-left">
-      <div class="alert-notify">
-        <i class="fas fa-bell-slash"></i>
 
-      </div>
-      <div class="search-conv">
-        <div class="search-txt">
-          <i class="fas fa-search"></i>
-          <input type="text">
-        </div>
-      </div>
-      <div class="spacer-container-convs">
-
-        <div class="conversations">
-          <div class="contact-chat" v-for="(contact, i) in contacts" :class="(isActive == contact) ? 'active' : ''" @click="activeConv2(contact)">
-            <img :id="getId(contact)" height="60"
-                 :src="getAvatar(contact)" alt=""
-                 class="avatar">
-            <span>{{contacts[i].name}}</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="container-right">
-    <div class="top-bar-right">
-      <div class="spacer-container">
-        <img class="avatar" height="60" :src="getActiveAvatar(isActive)" alt="">
-        <div class="name-conv">
-          {{isActive.name}}
-        </div>
-        <div class="shortcuts-top-right">
-          <i class="fas fa-circle-notch"></i>
-          <i class="fas fa-ellipsis-v"></i>
-        </div>
-      </div>
-    </div>
-    <div class="main-right">
-      <div class="spacer-container-conv-body">
-        <div class="conversation-body">
-          <div
-          class="message-box"
-          v-for="message in isActive.messages"
-          :class="message.status">
-            <span class="message-text">{{message.text}}</span>
+  <div id="root">
+    <div class="container-left">
+      <div class="top-bar-left">
+        <div class="spacer-container">
+          <img class="avatar" height="60" src="./img/avatar_io.jpg" alt="">
+          <div class="shortcuts-top">
+            <i class="fas fa-circle-notch"></i>
+            <i class="fas fa-comment"></i>
             <i class="fas fa-ellipsis-v"></i>
-            <span class="message-time">{{message.date}}</span>
           </div>
         </div>
-        <div class="messagebar">
-          <i class="far fa-smile"></i>
-          <i class="fas fa-paperclip"></i>
-          <input type="text" name="" value="">
-          <i class="fas fa-microphone"></i>
+      </div>
+      <div class="main-left">
+        <div class="alert-notify">
+          <i class="fas fa-bell-slash"></i>
+
+        </div>
+        <div class="search-conv">
+          <div class="search-txt">
+            <i class="fas fa-search"></i>
+            <input type="text">
+          </div>
+        </div>
+        <div class="spacer-container-convs">
+
+          <div class="conversations">
+            <div class="contact-chat" v-for="(contact, i) in contacts" :class="(isActive == contact) ? 'active' : ''" @click="activeConv2(contact)">
+              <img :id="getId(contact)"
+                   :src="getAvatar(contact)" alt=""
+                   class="avatar">
+              <span class="contact-chat-name">{{contacts[i].name}}</span>
+              <span class="last-msg">Ultimo messaggio</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-</div>
+    <div class="container-right">
+      <div class="top-bar-right">
+        <div class="spacer-container">
+          <img class="avatar" height="60" :src="getActiveAvatar(isActive)" alt="">
+          <div class="name-conv">
+            {{isActive.name}}
+          </div>
+          <div class="shortcuts-top-right">
+            <i class="fas fa-circle-notch"></i>
+            <i class="fas fa-ellipsis-v"></i>
+          </div>
+        </div>
+      </div>
+      <div class="main-right">
+        <div class="spacer-container-conv-body">
+          <div class="conversation-body">
+            <div
+            class="message-box"
+            v-for="message in isActive.messages"
+            :class="message.status">
+              <span class="message-text">{{message.text}}</span>
+              <i class="fas fa-ellipsis-v"></i>
+              <span class="message-time">{{message.date}}</span>
+            </div>
+          </div>
+          <div class="messagebar">
+            <i class="far fa-smile"></i>
+            <i class="fas fa-paperclip"></i>
+            <input type="text" v-model="newMsgTxt" @keyup.enter="newMessageFn">
+            <i class="fas fa-microphone"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 
 
 

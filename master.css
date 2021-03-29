@@ -130,7 +130,7 @@
 .conversations{
   height: 80%;
   width: 100%;
-  cursor: pointer;
+  /* cursor: pointer; */
 
   display: flex;
   flex-direction: column;
@@ -140,15 +140,30 @@
   height: 80px;
   padding: 10px;
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   border-bottom: .1em solid lightgrey;
+  cursor: pointer;
+}
+
+.contact-chat img{
+  height: 60px;
+  width: 60px;
+}
+
+.contact-chat .last-msg{
+  padding-left: 10px;
+  font-size: .6em;
+  color: grey;
+
 }
 
 .contact-chat.active{
   background-color: lightgrey;
 }
 
-.contact-chat span{
-  width: 100%;
+.contact-chat .contact-chat-name{
+  width: calc(100% - 70px);
   align-self: center;
   padding-left: 10px;
 }
@@ -194,6 +209,10 @@
 .search-conv .search-txt input{
   width: 90%;
   border: 0;
+}
+
+.search-conv .search-txt input:focus{
+  outline: none;
 }
 
 .search-conv .search-txt i{
@@ -248,6 +267,10 @@
   height: 30px;
   border-radius: 10px;
   border: 1px solid lightgrey;
+}
+
+.messagebar input:focus{
+  outline: none;
 }
 
 .messagebar i{

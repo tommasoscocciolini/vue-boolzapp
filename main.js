@@ -6,6 +6,7 @@ var app = new Vue({
   data:{
     index: 0,
     isActive: '',
+    newMsgTxt: '',
     contacts: [
     	{
     		name: 'Michele',
@@ -114,7 +115,6 @@ var app = new Vue({
     // },
     activeConv2: function(contact){
       this.isActive = contact;
-
     },
     getDate: function(date) {
       let data = new Date(date);
@@ -128,10 +128,58 @@ var app = new Vue({
       if (active.avatar==undefined) {
         return "img/avatar_1.jpg"
       } else return "img/avatar"+active.avatar+".jpg";
-    }
+    },
+    firstActive: function() {
+      isActiveAssign();
+    },
+    newMessageFn: function(i) {
+      if (this.newMsgTxt != "") {
+        let newMsgTxt = this.newMsgTxt;
+        let newobj = {
+          date: 'ora',
+          text: newMsgTxt,
+          status: 'sent',
+        }
+        this.isActive.messages.push(newobj);
+        this.newMsgTxt = "";
 
+        let newobjAnsw = {
+          date: 'ora+1',
+          text: 'ok',
+          status: 'received',
+        };
+
+        this.isActive.messages.push(newobjAnsw);
+
+
+
+        //console.log(newobj);
+        // let newobjAnsw = {
+        //   date: 'ora+1',
+        //   text: 'ok',
+        //   status: 'received',
+        // }
+        // this.isActive.messages.push(newobjAnsw);
+      }
+    },
+    autoAnswer: function() {
+      let newobjAnsw = {
+        date: 'ora+1',
+        text: 'ok',
+        status: 'received',
+      };
+
+      this.isActive.messages.push(newobjAnsw);
+    },
+
+},
+  created: function(){
+    this.isActive = this.contacts[0];
+    //console.log('ok');
   },
-  computed:{
 
-  }
+computed:{
+
+}
+
 })
