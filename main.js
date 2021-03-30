@@ -104,15 +104,6 @@ var app = new Vue({
       let id = String("conv-" + contact.name)
       return String(id)
     },
-    // activeConvFn: function(contact){
-    //   for (var i = 0; i < this.contacts.length; i++) {
-    //     this.contacts[i].status="";
-    //   }
-    //   contact.status = 'active';
-    //   console.log(this.contacts);
-    //   //console.log(contact.status);
-    //   return 'active';
-    // },
     activeConv2: function(contact){
       this.isActive = contact;
     },
@@ -123,6 +114,11 @@ var app = new Vue({
 
       return `${hours}:${minutes}`
     },
+    getDateITA: function(mydate) {
+      //console.log(mydate);
+      let dateMsg = mydate.slice(11,16)
+      return dateMsg
+    },
     getActiveAvatar: function(active) {
       //console.log(active.avatar);
       if (active.avatar==undefined) {
@@ -132,45 +128,35 @@ var app = new Vue({
     firstActive: function() {
       isActiveAssign();
     },
-    newMessageFn: function(i) {
+    newMessageFn: function() {
       if (this.newMsgTxt != "") {
+        const currentSelected = this.isActive.messages;
         let newMsgTxt = this.newMsgTxt;
         let newobj = {
-          date: 'ora',
+          date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
           text: newMsgTxt,
           status: 'sent',
         }
-        this.isActive.messages.push(newobj);
+        currentSelected.push(newobj);
         this.newMsgTxt = "";
 
-        let newobjAnsw = {
-          date: 'ora+1',
-          text: 'ok',
-          status: 'received',
-        };
+        setTimeout(() => {
+          let newobjAnsw = {
+            date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+            text: 'ok',
+            status: 'received',
+          };
 
-        this.isActive.messages.push(newobjAnsw);
-
-
-
-        //console.log(newobj);
-        // let newobjAnsw = {
-        //   date: 'ora+1',
-        //   text: 'ok',
-        //   status: 'received',
-        // }
-        // this.isActive.messages.push(newobjAnsw);
+          currentSelected.push(newobjAnsw);
+        }, 1000);
       }
     },
-    autoAnswer: function() {
-      let newobjAnsw = {
-        date: 'ora+1',
-        text: 'ok',
-        status: 'received',
-      };
+    getLastAccess: function(active){
+      const messages = active.messages;
+      const lastIndex = messages.length - 1;
 
-      this.isActive.messages.push(newobjAnsw);
-    },
+      return messages[lastIndex].date;
+    }
 
 },
   created: function(){
