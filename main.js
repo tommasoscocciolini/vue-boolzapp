@@ -155,8 +155,14 @@ var app = new Vue({
       const messages = active.messages;
       const lastIndex = messages.length - 1;
 
-      return messages[lastIndex].date;
-    }
+      return messages[lastIndex].date.slice(11,16);
+    },
+    getLastMsg: function(active){
+      const messages = active.messages;
+      const lastIndex = messages.length - 1;
+
+      return messages[lastIndex].text;
+    },
 
 },
   created: function(){

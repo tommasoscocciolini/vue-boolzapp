@@ -75,13 +75,13 @@
   height: 100%;
   margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: space-around;
 }
 
 .spacer-container-convs{
-  width: 95%;
+  width: 100%;
   padding: 10px 0;
 
   margin: 0 auto;
@@ -112,6 +112,7 @@
   flex-wrap: nowrap;
   justify-content: flex-end;
   align-items: center;
+  cursor: pointer;
 }
 
 .shortcuts-top-right{
@@ -120,6 +121,7 @@
   flex-wrap: nowrap;
   justify-content: flex-end;
   align-items: center;
+  cursor: pointer;
 }
 
 .spacer-container .shortcuts-top-right i{
@@ -311,4 +313,35 @@
 
 .name-conv{
 
+}
+
+@media all and (min-width: 1200px) {
+  #root{
+    transform: scale(.9);
+  }
+  html{
+    background: #67B26F;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(left, #4ca2cd, #67B26F);
+    background: -o-linear-gradient(left, #4ca2cd, #67B26F);
+    background: linear-gradient(to right, #4ca2cd, #67B26F);
+  }
+}
+
+@media all and (max-width: 900px){
+  .contact-chat .last-msg{
+    display: none;
+  }
+
+  .contact-chat .contact-chat-name{
+    font-size: .7em;
+    margin-left: -30px;
+  }
+
+  .contact-chat img{
+    transform: scale(.8);
+  }
+
+  .shortcuts-top, .shortcuts-top-right, .name-conv{
+    transform: scale(.7);
+  }
 }

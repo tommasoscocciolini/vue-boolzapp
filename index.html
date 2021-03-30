@@ -44,7 +44,7 @@
                    :src="getAvatar(contact)" alt=""
                    class="avatar">
               <span class="contact-chat-name">{{contacts[i].name}}</span>
-              <span class="last-msg">Ultimo messaggio</span>
+              <span class="last-msg">{{getLastMsg(contacts[i])}}</span>
             </div>
           </div>
         </div>
@@ -57,8 +57,8 @@
           <img class="avatar" height="60" :src="getActiveAvatar(isActive)" alt="">
           <div class="name-conv">
             {{isActive.name}}
+            <div class="last-access">Ultimo Accesso alle {{getLastAccess(isActive)}}</div>
           </div>
-          <div class="last-access">Ultimo Accesso alle {{getLastAccess(isActive)}}</div>
           <div class="shortcuts-top-right">
             <i class="fas fa-circle-notch"></i>
             <i class="fas fa-ellipsis-v"></i>
