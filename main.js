@@ -8,6 +8,7 @@ var app = new Vue({
     isActive: '',
     newMsgTxt: '',
     search: '',
+    lastAccesVisible: true,
     contacts: [
     	{
     		name: 'Michele',
@@ -158,7 +159,7 @@ var app = new Vue({
       if (messages.length) {
         const lastIndex = messages.length - 1;
 
-        return messages[lastIndex].date.slice(11,16);
+        return "Ultimo Accesso alle " + messages[lastIndex].date.slice(11,16);
       } else {
         return '';
       }
@@ -168,6 +169,10 @@ var app = new Vue({
       const messages = active.messages;
       const lastIndex = messages.length - 1;
 
+      if (messages[lastIndex] == undefined) {
+        lastAccesVisible = false;
+        return messages[lastIndex] = '';
+      }
       return messages[lastIndex].text;
     },
     showOpt: function(index){
@@ -195,7 +200,7 @@ var app = new Vue({
     showOpt2: function(index){
       this.isActive.messages = this.isActive.messages.map((message, i) => {
         if (index == i) {
-          console.log(message);
+          //console.log(message);
           return {
             ...message,
             showOptions2: true,
@@ -206,7 +211,7 @@ var app = new Vue({
             ...message,
             showOptions2: false,
           }
-          console.log(message);
+          //console.log(message);
         }
       });
       // console.log(msg);
@@ -235,9 +240,17 @@ var app = new Vue({
     },
 
 },
+
   created: function(){
     this.isActive = this.contacts[0];
     //console.log('ok');
+  },
+
+  computed: {
+    lastMessage: function() {
+
+    },
+
   },
 
 
