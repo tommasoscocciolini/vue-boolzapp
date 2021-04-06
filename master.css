@@ -176,15 +176,31 @@
   background-color: #9EE1FE;
 
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   padding: 20px;
 }
 
 .alert-notify i{
-  border: 1px solid blue
+  border: 1px solid white;
   border-radius: 50%;
+  background-color: #ffffff;
+  color: #9EE1FE;
   padding: 10px;
+  margin-right: 50px;
+}
+
+.alert-notify span{
+  font-size: .8em;
+  color: black;
+  /* padding: 10px; */
+}
+
+.alert-notify small{
+  font-size: .7em;
+  color: grey;
+  text-decoration: underline;
+  /* padding: 10px; */
 }
 
 .search-conv{
@@ -326,7 +342,31 @@
 .message-opt.active{
   display: block;
   background-color: white;
-  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 1px 2px 30px 1px;
+  padding: 10px;
+}
+
+.message-opt .deletemes{
+  cursor: pointer;
+  border-top: 1px solid lightgrey;
+}
+
+.message-opt .msg-info{
+  cursor: pointer;
+}
+
+.message-opt .msg-info .infos{
+  display: none;
+}
+
+.message-opt .msg-info .infos.active{
+  display: block;
+}
+
+.infos-date{
+  border: 1px solid grey;
+  font-size: .6em;
   padding: 10px;
 }
 
@@ -349,7 +389,7 @@
 
   .contact-chat .contact-chat-name{
     font-size: .7em;
-    margin-left: -30px;
+    /* margin-left: -30px; */
   }
 
   .contact-chat img{
@@ -358,5 +398,12 @@
 
   .shortcuts-top, .shortcuts-top-right, .name-conv{
     transform: scale(.7);
+  }
+
+}
+
+@media all and (max-width: 768px){
+  .alert-notify{
+    display: none;
   }
 }

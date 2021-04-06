@@ -13,7 +13,7 @@
 <body>
 
 
-  <div id="root" @click="">
+  <div id="root" @click="closeTabs()">
     <div class="container-left">
       <div class="top-bar-left">
         <div class="spacer-container">
@@ -28,7 +28,10 @@
       <div class="main-left">
         <div class="alert-notify">
           <i class="fas fa-bell-slash"></i>
-
+          <div class="alert-txt">
+            <span style="display: block">Ricevi notifiche di nuovi messaggi</span>
+            <small>Attiva notifiche desktop</small>
+          </div>
         </div>
         <div class="search-conv">
           <div class="search-txt">
@@ -76,8 +79,12 @@
               <span class="message-text">{{message.text}}</span>
               <i class="fas fa-ellipsis-v" @click.stop="showOpt(i)"></i>
               <div class="message-opt" :class="(message.showOptions) ? 'active' : ''">
-                <div class="msg-info">Show Info</div>
-                <div class="delete" @click="deleteMsg(i)">Delete</div>
+                <div class="msg-info" @click.stop="showOpt2(i)">Show Info
+                  <div class="infos" :class="(message.showOptions2) ? 'active' : ''">
+                    <div class="infos-date">{{message.date}}</div>
+                  </div>
+                </div>
+                <div class="deletemes" @click="deleteMsg(i)">Delete</div>
               </div>
               <span class="message-time">{{getDateITA(message.date)}}</span>
             </div>

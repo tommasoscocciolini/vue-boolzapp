@@ -7,7 +7,6 @@ var app = new Vue({
     index: 0,
     isActive: '',
     newMsgTxt: '',
-
     search: '',
     contacts: [
     	{
@@ -174,10 +173,12 @@ var app = new Vue({
     showOpt: function(index){
       this.isActive.messages = this.isActive.messages.map((message, i) => {
         if (index == i) {
+          //console.log(message);
           return {
             ...message,
             showOptions: true,
           }
+
         } else {
           return {
             ...message,
@@ -191,8 +192,46 @@ var app = new Vue({
       //
       // console.log(this.isActive.messages[i]),
     },
+    showOpt2: function(index){
+      this.isActive.messages = this.isActive.messages.map((message, i) => {
+        if (index == i) {
+          console.log(message);
+          return {
+            ...message,
+            showOptions2: true,
+          }
+
+        } else {
+          return {
+            ...message,
+            showOptions2: false,
+          }
+          console.log(message);
+        }
+      });
+      // console.log(msg);
+      // this.isActive.messages[i],
+      //
+      // console.log(this.isActive.messages[i]),
+    },
     deleteMsg: function(index) {
+      //console.log(this.isActive.messages[index]);
+      this.isActive.messages[index]
       this.isActive.messages.splice(index, 1);
+    },
+    closeTabs: function() {
+      this.isActive.messages = this.isActive.messages.map((message, i) => {
+        return {
+          ...message,
+          showOptions: false,
+        }
+      });
+      this.isActive.messages = this.isActive.messages.map((message, i) => {
+        return {
+          ...message,
+          showOptions2: false,
+        }
+      });
     },
 
 },
