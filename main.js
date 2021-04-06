@@ -7,6 +7,8 @@ var app = new Vue({
     index: 0,
     isActive: '',
     newMsgTxt: '',
+
+    search: '',
     contacts: [
     	{
     		name: 'Michele',
@@ -153,15 +155,44 @@ var app = new Vue({
     },
     getLastAccess: function(active){
       const messages = active.messages;
-      const lastIndex = messages.length - 1;
 
-      return messages[lastIndex].date.slice(11,16);
+      if (messages.length) {
+        const lastIndex = messages.length - 1;
+
+        return messages[lastIndex].date.slice(11,16);
+      } else {
+        return '';
+      }
+
     },
     getLastMsg: function(active){
       const messages = active.messages;
       const lastIndex = messages.length - 1;
 
       return messages[lastIndex].text;
+    },
+    showOpt: function(index){
+      this.isActive.messages = this.isActive.messages.map((message, i) => {
+        if (index == i) {
+          return {
+            ...message,
+            showOptions: true,
+          }
+        } else {
+          return {
+            ...message,
+            showOptions: false,
+          }
+          console.log(message);
+        }
+      });
+      // console.log(msg);
+      // this.isActive.messages[i],
+      //
+      // console.log(this.isActive.messages[i]),
+    },
+    deleteMsg: function(index) {
+      this.isActive.messages.splice(index, 1);
     },
 
 },
@@ -170,8 +201,5 @@ var app = new Vue({
     //console.log('ok');
   },
 
-computed:{
-
-}
 
 })
